@@ -29,6 +29,7 @@ struct RecipeDetailView: View {
                         item in
                         Text("• " + item.name)
                     }
+                    .padding(.horizontal)
                 }
                 
                 //MARK: Divider
@@ -36,11 +37,13 @@ struct RecipeDetailView: View {
                 
                 //MARK: Directions
                 VStack(alignment:.leading){
-                    Text("Directions").font(.headline).padding([.top, .leading, .bottom])
+                    Text("Directions").font(.headline).padding([.top, .leading, .bottom],5)
+                    
                     ForEach(0..<recipe.directions.count,id:\.self){ index in
-                        Text(String(index+1)+". "+recipe.directions[index]).padding([.top, .leading, .bottom])
+                        Text(String(index+1)+". "+recipe.directions[index]).padding( .bottom,5)
                     }
                 }
+                .padding(.horizontal)
             }
         }.navigationBarTitle(recipe.name)
     }
