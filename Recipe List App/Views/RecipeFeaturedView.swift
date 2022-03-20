@@ -12,6 +12,8 @@ struct RecipeFeaturedView: View {
     @State var isDetailViewShowing = false
     @State var tabSelectionIndex = 0
     
+    
+    
     var body: some View {
         
         VStack(alignment: .leading, spacing: 0) {
@@ -58,6 +60,7 @@ struct RecipeFeaturedView: View {
                             }
                             
                         })
+                        .tag(index)
                         .sheet(isPresented: $isDetailViewShowing) {
                             // Show the Recipe Detail View
                             RecipeDetailView(recipe: model.recipes[index])
@@ -80,9 +83,12 @@ struct RecipeFeaturedView: View {
                 
                 Text("Preparation Time:")
                     .font(.headline)
+                Text(model.recipes[tabSelectionIndex].prepTime)
                 
                 Text("Highlights")
                     .font(.headline)
+                RecipeHighlights(highlights:model.recipes[tabSelectionIndex].highlights)
+                
             }
             .padding([.leading, .bottom])
         }
