@@ -32,6 +32,7 @@ struct RecipeHighlights: View {
         
     var body: some View {
         Text(allHightlights)
+            .font(Font.custom("Avenir",size:15))
     }
 }
 
